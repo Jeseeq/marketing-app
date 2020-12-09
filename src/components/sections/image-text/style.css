@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.reverse {
+  flex-direction: row;
+}
+
+.title {
+}
+
+.image {
+  max-width: 100%;
+}
+
+.content {
+}

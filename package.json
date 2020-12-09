@@ -16,6 +16,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
+    "classnames": "^2.2.6",
     "css-loader": "^5.0.1",
     "eslint": "^7.15.0",
     "eslint-config-airbnb": "^18.2.1",
