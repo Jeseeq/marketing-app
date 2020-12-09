@@ -1,8 +1,8 @@
 import sectionSchemas from './schemas'
 
-const validateSection = (sectionType = 'default', sectionValues) => {
-  const sectionSchema = sectionSchemas[sectionType]
+const validateSection = (schema = {}, sectionValues) => {
   const errors = {}
+
   const validateInner = (values, schema, collector) => {
     for (const schemaKey of Object.keys(schema)) {
       const schemaValue = schema[schemaKey]
@@ -21,7 +21,7 @@ const validateSection = (sectionType = 'default', sectionValues) => {
     return collector
   }
 
-  return validateInner(sectionValues, sectionSchema, errors)
+  return validateInner(sectionValues, schema, errors)
 }
 
 const validateRoot = (config) => {
@@ -70,10 +70,12 @@ const parseAndValidateConfig = (config) => {
 
   const sectionErrors = value.reduce((acc, section) => {
     const {type} = section
-    const errors = Object.values(validateSection(type, section))
+    const schema = sectionSchemas[type]
+    const errors = Object.values(validateSection(schema, section))
     if (errors.length) {
       return [...acc, ...errors]
     }
+
     return acc
   }, [])
 
@@ -83,10 +85,10 @@ const parseAndValidateConfig = (config) => {
   }
 }
 
-const makeValidator = (options) => {
+const createValidator = (options) => {
   return {
     parseAndValidateConfig,
   }
 }
 
-export default makeValidator
+export default createValidator
