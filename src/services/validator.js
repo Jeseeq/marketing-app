@@ -15,6 +15,7 @@ const sectionSchemas = {
   },
   data: {
     type: [required],
+    url: [required],
   },
 }
 

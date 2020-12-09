@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+}
+
+.refetch {
+}
+
+.entries {
+  margin-left: 40px;
+}

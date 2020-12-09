@@ -12,11 +12,12 @@ const sectionComponents = {
 }
 
 const renderWebsiteMarkup = (config) => {
-  return config.map((section) => {
+  return config.map((section, index) => {
     const {type} = section
     const Component = sectionComponents[type]
+    const key = `${type}-${index}`
     return (
-      <div className={css.sectionWrapper}>
+      <div className={css.sectionWrapper} key={key}>
         <Component {...section} />
       </div>
     )

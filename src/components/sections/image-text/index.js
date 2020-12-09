@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import css from './style.css'
 
 const ImageSection = (props) => {
-  const {imageURI, text, title, leftToRight} = props
+  const {imageURI, text, title, leftToRight = true} = props
   return (
     <div className={classNames(css.wrapper, {[css.reverse]: leftToRight})}>
       <img
