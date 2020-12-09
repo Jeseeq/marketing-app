@@ -1,4 +1,4 @@
-export const required = (value, key, values) => {
+const required = (value, key) => {
   if (!value) {
     return `${key} is required but got ${value}`
   }
@@ -22,8 +22,8 @@ const sectionSchemas = {
   },
 }
 
-const validateSection = (sectionType = 'default', sectionValues) => {
-  const sectionSchema = sectionSchemas[sectionType]
+const validateSection = (sectionType, sectionValues) => {
+  const sectionSchema = sectionSchemas[sectionType] || sectionSchemas.default
   const errors = {}
   const validateInner = (values, schema, collector) => {
     for (const schemaKey of Object.keys(schema)) {

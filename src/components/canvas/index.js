@@ -2,6 +2,7 @@ import {
   Image,
   Hero,
   Data,
+  Unknown,
 } from '../sections'
 import css from './style.css'
 
@@ -14,7 +15,7 @@ const sectionComponents = {
 const renderWebsiteMarkup = (config) => {
   return config.map((section, index) => {
     const {type} = section
-    const Component = sectionComponents[type]
+    const Component = sectionComponents[type] || Unknown
     const key = `${type}-${index}`
     return (
       <div className={css.sectionWrapper} key={key}>
