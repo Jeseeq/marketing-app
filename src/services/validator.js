@@ -17,9 +17,12 @@ const sectionSchemas = {
     type: [required],
     url: [required],
   },
+  default: {
+    type: [required],
+  },
 }
 
-const validateSection = (sectionType, sectionValues) => {
+const validateSection = (sectionType = 'default', sectionValues) => {
   const sectionSchema = sectionSchemas[sectionType]
   const errors = {}
   const validateInner = (values, schema, collector) => {
@@ -89,7 +92,7 @@ const parseAndValidateConfig = (config) => {
 
   const sectionErrors = value.reduce((acc, section) => {
     const {type} = section
-    const errors = validateSection(type, section)
+    const errors = Object.values(validateSection(type, section))
     if (errors.length) {
       return [...acc, ...errors]
     }
