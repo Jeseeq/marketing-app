@@ -11,9 +11,9 @@ const ImageSection = (props) => {
         className={css.image}
         height="200px"
       />
-      <div>
-        <h3 className={css.title}>{title}</h3>
-        <p className={css.content}>{text}</p>
+      <div className={css.content}>
+        <h3>{title}</h3>
+        <p>{text}</p>
       </div>
     </div>
   )

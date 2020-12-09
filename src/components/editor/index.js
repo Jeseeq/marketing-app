@@ -11,7 +11,6 @@ const Editor = (props) => {
     onChange(value)
   }
 
-
   return (
     <div className={css.editor}>
       <textarea
