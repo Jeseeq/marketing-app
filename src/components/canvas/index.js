@@ -1,6 +1,9 @@
-import Image from '../sections/image-text'
-import Hero from '../sections/hero'
-import Data from '../sections/data'
+import {
+  Image,
+  Hero,
+  Data,
+} from '../sections'
+import css from './style.css'
 
 const sectionComponents = {
   hero: Hero,
@@ -9,11 +12,13 @@ const sectionComponents = {
 }
 
 const renderWebsiteMarkup = (config) => {
-  return config.map(section => {
+  return config.map((section) => {
     const {type} = section
     const Component = sectionComponents[type]
     return (
-      <Component {...section} />
+      <div className={css.sectionWrapper}>
+        <Component {...section} />
+      </div>
     )
   })
 }
@@ -26,7 +31,7 @@ const Canvas = (props) => {
 
   if (errors.length) {
     return (
-      <div>
+      <div className={css.canvas}>
         Errors {JSON.stringify(errors, null, 2)}
       </div>
     )
@@ -35,7 +40,7 @@ const Canvas = (props) => {
   const markup = renderWebsiteMarkup(config)
 
   return (
-    <div>{markup}</div>
+    <div className={css.canvas}>{markup}</div>
   )
 }
 

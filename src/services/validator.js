@@ -7,6 +7,7 @@ export const required = (value, key, values) => {
 const sectionSchemas = {
   'image-text': {
     type: [required],
+    text: [required],
   },
   hero: {
     type: [required],
