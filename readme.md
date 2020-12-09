@@ -3,7 +3,7 @@
 ```
 npm install
 npm start
+```
 
 # Open
-open application on http://localhost:8080
-```
+open application on ``http://localhost:8080``
