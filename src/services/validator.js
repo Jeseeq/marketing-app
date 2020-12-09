@@ -1,29 +1,7 @@
-const required = (value, key) => {
-  if (!value) {
-    return `${key} is required but got ${value}`
-  }
-}
+import sectionSchemas from './schemas'
 
-const sectionSchemas = {
-  'image-text': {
-    type: [required],
-    text: [required],
-  },
-  hero: {
-    type: [required],
-    imageURI: [required],
-  },
-  data: {
-    type: [required],
-    url: [required],
-  },
-  default: {
-    type: [required],
-  },
-}
-
-const validateSection = (sectionType, sectionValues) => {
-  const sectionSchema = sectionSchemas[sectionType] || sectionSchemas.default
+const validateSection = (sectionType = 'default', sectionValues) => {
+  const sectionSchema = sectionSchemas[sectionType]
   const errors = {}
   const validateInner = (values, schema, collector) => {
     for (const schemaKey of Object.keys(schema)) {
